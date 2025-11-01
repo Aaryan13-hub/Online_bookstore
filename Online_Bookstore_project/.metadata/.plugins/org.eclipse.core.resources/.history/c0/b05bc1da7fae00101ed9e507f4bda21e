@@ -1,0 +1,5 @@
+package com.aryan.model;
+
+public class UserPrincipal {
+
+}

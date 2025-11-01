@@ -1,0 +1,19 @@
+package com.aryan.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.aryan.model.Users;
+import com.aryan.repo.UserRepository;
+
+@RestController
+public class UserController {
+ 
+	@Autowired
+	UserRepository userRepository;
+	
+	public Users createUser(@RequestBody Users user) {
+		return userRepository.save(user);
+	}
+}

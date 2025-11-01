@@ -1,0 +1,5 @@
+package com.aryan.security;
+
+public class SecurityConfig {
+
+}

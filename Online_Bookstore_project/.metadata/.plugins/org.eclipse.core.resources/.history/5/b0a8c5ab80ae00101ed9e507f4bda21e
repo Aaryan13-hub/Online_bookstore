@@ -1,0 +1,28 @@
+package com.aryan.service;
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.aryan.model.Users;
+import com.aryan.repo.UserRepository;
+
+@Service
+public class UsersService{
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	
+
+	
+	
+
+	
+}

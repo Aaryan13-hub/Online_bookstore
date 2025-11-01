@@ -1,0 +1,95 @@
+package com.aryan.service;
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.aryan.model.Users;
+import com.aryan.repo.UserRepository;
+
+@Service
+public class UsersService{
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	AuthenticationManager authenticationManager;
+
+	@Autowired
+	JWTService jwtService;
+	
+
+	public String verify(Users user) {
+		Authentication authentication = 
+				authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+		
+		if(authentication.isAuthenticated()) {
+			Users existingUser = userRepository.findByEmail(user.getEmail());
+			return jwtService.generateToken(existingUser.getEmail(),existingUser.getRole());
+		}
+		else {
+			return "invalid credentials"; 
+		}
+			
+		
+	}
+
+
+	public ResponseEntity<String> updateProfile(Users updatedUser, Authentication authentication) {
+		String loggedInEmail = authentication.getName();
+		
+		Users existingUser = userRepository.findByEmail(loggedInEmail);
+		if(existingUser == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+		}
+		
+		existingUser.setUsername(updatedUser.getUsername());
+		existingUser.setPhone(updatedUser.getPhone());
+		existingUser.setAddress(updatedUser.getAddress());
+		existingUser.setCity(updatedUser.getCity());
+		existingUser.setBirthdate(updatedUser.getBirthdate());
+		existingUser.setCountry(updatedUser.getCountry());
+		existingUser.setFavouriteGenre(updatedUser.getFavouriteGenre());
+		existingUser.setState(updatedUser.getState());
+		existingUser.setPincode(updatedUser.getPincode());
+		existingUser.setOccupation(updatedUser.getOccupation());
+		
+		userRepository.save(existingUser);
+		
+		return ResponseEntity.ok("Profile updated successfully");
+		
+	}
+
+
+	public ResponseEntity<?> getProfile(Authentication authentication) {
+		String email = authentication.getName();
+		
+		Users user = userRepository.findByEmail(email);
+		
+		if(user==null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+		}
+		
+				
+		return ResponseEntity.ok(user);
+	}
+
+
+
+}

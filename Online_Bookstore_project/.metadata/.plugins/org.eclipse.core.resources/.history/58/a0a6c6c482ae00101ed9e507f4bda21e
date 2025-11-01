@@ -1,0 +1,31 @@
+package com.aryan.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.aryan.model.UserPrincipal;
+import com.aryan.model.Users;
+import com.aryan.repo.UserRepository;
+
+public class MyUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	UserRepository userRepository;
+	
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		Users user = userRepository.findByEmail(email);
+		
+		if(user!=null) {
+			 
+			 return new UserPrincipal(user);
+		}
+		else {
+			throw new UsernameNotFoundException("User not found with email:"+email);
+		}
+		
+	} 
+}

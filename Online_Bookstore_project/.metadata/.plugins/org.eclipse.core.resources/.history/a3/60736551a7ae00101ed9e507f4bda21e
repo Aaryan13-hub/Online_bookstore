@@ -1,0 +1,55 @@
+package com.aryan.config;
+
+import java.io.IOException;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.aryan.service.JWTService;
+import com.aryan.service.MyUserDetailsService;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class JwtFilter extends OncePerRequestFilter{
+
+	@Autowired
+	private JWTService jwtService;
+	
+	@Autowired
+	ApplicationContext context;
+	
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
+		String authHeader = request.getHeader("Authorization"); 
+		String token = null; 
+		String email = null;
+		
+		if(authHeader!=null && authHeader.startsWith("Bearer")) {
+			token = authHeader.substring(7);
+			email = jwtService.extractEmail(token); 
+		}
+		
+		if(email!=null && SecurityContextHolder.getContext().getAuthentication()==null) {
+			
+			UserDetails userDetails = context.getBean(MyUserDetailsService.class).loadUserByUsername(email);
+			
+			if(jwtService.validateToken(token,userDetails)) {
+				UsernamePasswordAuthenticationToken authtoken = new UsernamePasswordAuthenticationToken(userDetails, null,userDetails.getAuthorities());
+			}
+		}	
+		
+		
+		
+	}
+
+	
+	 
+}

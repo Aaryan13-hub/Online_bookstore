@@ -1,0 +1,28 @@
+# --- Spring Boot / Java ---
+Online_Bookstore_project/target/
+*.class
+*.jar
+*.war
+*.log
+
+# IDE settings
+.idea/
+*.iml
+
+# --- React / Node ---
+Online_Bookstore_frontend/node_modules/
+Online_Bookstore_frontend/build/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# --- Python venv (CF microservice) ---
+Online_Bookstore_project/recommendation-cf-service/venv/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+

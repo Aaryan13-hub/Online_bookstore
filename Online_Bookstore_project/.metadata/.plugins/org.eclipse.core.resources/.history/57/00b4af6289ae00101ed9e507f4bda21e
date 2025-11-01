@@ -1,0 +1,25 @@
+package com.aryan.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.Jwts;
+
+@Service 
+public class JWTService {
+
+	public String generateToken(String email) {
+			
+		Map<String, Object> claims = new HashMap<>();
+		
+		return Jwts.builder()
+				.claims()
+				.add(claims)
+				.subject(null)
+		
+		return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Inlhc2hyYWoiLCJpYXQiOjE1MTYyMzkwMjIsImV4cCI6MTUxNjI0OTAyMn0.GbOrC80pplmvGTHAxaPcUF8Bbdn6lDNdjkh4Pg5MDUM";
+	}
+
+}
