@@ -36,6 +36,7 @@ iv)Create DB in MySQL as follows :
 	-- -------------------------------
 -- Users Table
 -- -------------------------------
+```sql
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
@@ -52,18 +53,21 @@ CREATE TABLE users (
     favourite_genre VARCHAR(255),
     birthdate DATETIME(6)
 );
+```
 
 -- -------------------------------
 -- Authors Table
 -- -------------------------------
+```sql
 CREATE TABLE authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255)
 );
-
+```
 -- -------------------------------
 -- Books Table
 -- -------------------------------
+```sql
 CREATE TABLE books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
@@ -74,10 +78,11 @@ CREATE TABLE books (
     slug VARCHAR(255),
     author VARCHAR(255)
 );
-
+```
 -- -------------------------------
 -- Mapping Table (Many-to-Many: Book ↔ Author)
 -- -------------------------------
+```sql
 CREATE TABLE book_author (
     book_id INT,
     author_id INT,
@@ -85,10 +90,12 @@ CREATE TABLE book_author (
     FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
     FOREIGN KEY (author_id) REFERENCES authors(author_id) ON DELETE CASCADE
 );
+```
 
 -- -------------------------------
 -- Orders Table
 -- -------------------------------
+```sql
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     order_date DATETIME(6),
@@ -96,10 +103,12 @@ CREATE TABLE orders (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+```
 
 -- -------------------------------
 -- Order Items Table
 -- -------------------------------
+```sql
 CREATE TABLE order_items (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
@@ -108,10 +117,11 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
-
+```
 -- -------------------------------
 -- Reviews Table
 -- -------------------------------
+```sql
 CREATE TABLE reviews (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -122,7 +132,7 @@ CREATE TABLE reviews (
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
-
+```
 Open application.properties and update credentials:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/onlinebookstore
