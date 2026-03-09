@@ -133,6 +133,7 @@ CREATE TABLE reviews (
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
 ```
+```
 Open application.properties and update credentials:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/onlinebookstore
@@ -163,6 +164,6 @@ i)Open folder named 'Online_Bookstore_frontend' in VS Code
 ii)Install dependencies : npm install
 iii)Ensure backend API is set in axiosConfig.js : const BASE_URL = "http://localhost:8080";
 iv)Start Frontend : npm run dev
-
+```
 
 
