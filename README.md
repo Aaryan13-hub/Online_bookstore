@@ -1,10 +1,10 @@
-Online Bookstore With Reviews and Recommendations
+# Online Bookstore With Reviews and Recommendations
 
-Overview :
+## Overview :
 This project is a modern Online Bookstore that integrates:
-- 🔹 Spring Boot Backend(Authentication, Orders, Reviews, Business Logic)
-- 🔹 React Frontend (User Interface and Interaction)
-- 🔹 Python FastAPI Recommendation Engine (Collaborative Filtering + Hybrid Model)
+- Spring Boot Backend(Authentication, Orders, Reviews, Business Logic)
+- React Frontend (User Interface and Interaction)
+- Python FastAPI Recommendation Engine (Collaborative Filtering + Hybrid Model)
 
 The system provides:
 - Secure login using JWT  
@@ -13,14 +13,14 @@ The system provides:
 - Order placement & review handling  
 - Admin controls for managing inventory
 
-Technologies Used :
+## Technologies Used :
 Frontend : React, Axios, Redux
 Backend : Spring Boot, Spring security (JWT)
 Database : MySQL
 Recommendation Model : Python, FastAPI, NumPy, Pandas, sckit-learn
 Deployment style : Local Microservices Architecture
 
-Steps to setup and run the project :
+## Steps to setup and run the project :
 1.Clone the repository n your local machine
 use this command in git or cmd : "git clone https://github.com/Aaryan13-hub/Online_bookstore.git"
 
@@ -32,7 +32,7 @@ iv)Create DB in MySQL as follows :
 	CREATE DATABASE onlinebookstore;
 	USE onlinebookstore;
 
-Run below script to create all tables :
+## Run below script to create all tables :
 	-- -------------------------------
 -- Users Table
 -- -------------------------------
