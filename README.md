@@ -24,6 +24,7 @@ Deployment style : Local Microservices Architecture
 1.Clone the repository n your local machine
 use this command in git or cmd : "git clone https://github.com/Aaryan13-hub/Online_bookstore.git"
 
+<pre>
 2.Setup and run backend (Spring boot via IntelliJ IDEA)
 i)Install and open IntelliJ-IDEA -> File -> Open folders as->Online_bookstore->Online_Bookstore_project ->SpringBoot_BookStore
 ii)Wait for Maven to download dependencies
@@ -31,7 +32,7 @@ iii)Configure JDK → JDK 17
 iv)Create DB in MySQL as follows : 
 	CREATE DATABASE onlinebookstore;
 	USE onlinebookstore;
-
+</pre>
 ## Run below script to create all tables :
 	-- -------------------------------
 -- Users Table
