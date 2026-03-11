@@ -24,15 +24,14 @@ Deployment style : Local Microservices Architecture
 1.Clone the repository n your local machine
 use this command in git or cmd : "git clone https://github.com/Aaryan13-hub/Online_bookstore.git"
 
-<pre>
+
 2.Setup and run backend (Spring boot via IntelliJ IDEA)
-i)Install and open IntelliJ-IDEA -> File -> Open folders as->Online_bookstore->Online_Bookstore_project ->SpringBoot_BookStore
-ii)Wait for Maven to download dependencies
-iii)Configure JDK → JDK 17
-iv)Create DB in MySQL as follows : 
-	CREATE DATABASE onlinebookstore;
+- Install and open IntelliJ-IDEA -> File -> Open folders as->Online_bookstore->Online_Bookstore_project ->SpringBoot_BookStore
+- Wait for Maven to download dependencies
+- Configure JDK → JDK 17
+- Create DB in MySQL as follows : 
+- CREATE DATABASE onlinebookstore;
 	USE onlinebookstore;
-</pre>
 ## Run below script to create all tables :
 	-- -------------------------------
 -- Users Table
@@ -134,37 +133,37 @@ CREATE TABLE reviews (
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
 ```
-```
-Open application.properties and update credentials:
 
+Open application.properties and update credentials:
+```
 spring.datasource.url=jdbc:mysql://localhost:3306/onlinebookstore
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
 //keep else part as it is
-
+```
 3.Run app:
-i)Open SpringBootBookStoreApplication.java-> Right-click  → Run 
-ii)http://localhost:8080 
+- Open SpringBootBookStoreApplication.java-> Right-click  → Run 
+- http://localhost:8080 
 
 4. Setup & Run Python Microservice (PyCharm)
-i)setup and run virtual environment :
+- setup and run virtual environment :
 cd recommendation-cf-service
 python -m venv venv
-ii)Activate it:venv\Scripts\activate
-iii)Install Required Libraries
+- Activate it:venv\Scripts\activate
+- Install Required Libraries
 pip install -r requirements.txt
 
 (If missing, use:)
 pip install fastapi uvicorn numpy pandas scikit-learn requests matplotlib	
-iv) Run the Recommendation Service :  uvicorn app:app --reload --port 8000
-v)Service runs at : http://localhost:8000
+- Run the Recommendation Service :  uvicorn app:app --reload --port 8000
+- Service runs at : http://localhost:8000
 
 5.Setup and run React Frontend (VS code)
-i)Open folder named 'Online_Bookstore_frontend' in VS Code
-ii)Install dependencies : npm install
-iii)Ensure backend API is set in axiosConfig.js : const BASE_URL = "http://localhost:8080";
-iv)Start Frontend : npm run dev
-```
+- Open folder named 'Online_Bookstore_frontend' in VS Code
+- Install dependencies : npm install
+- Ensure backend API is set in axiosConfig.js : const BASE_URL = "http://localhost:8080";
+- Start Frontend : npm run dev
+
 
 
