@@ -21,9 +21,10 @@ Recommendation Model : Python, FastAPI, NumPy, Pandas, sckit-learn
 Deployment style : Local Microservices Architecture
 
 ## Steps to setup and run the project :
-1.Clone the repository n your local machine
-use this command in git or cmd : "git clone https://github.com/Aaryan13-hub/Online_bookstore.git"
-
+```
+# Clone the repository in your local machine
+"git clone https://github.com/Aaryan13-hub/Online_bookstore.git"
+```
 
 2.Setup and run backend (Spring boot via IntelliJ IDEA)
 - Install and open IntelliJ-IDEA -> File -> Open folders as->Online_bookstore->Online_Bookstore_project ->SpringBoot_BookStore
@@ -32,7 +33,7 @@ use this command in git or cmd : "git clone https://github.com/Aaryan13-hub/Onli
 - Create DB in MySQL as follows : 
 - CREATE DATABASE onlinebookstore;
 	USE onlinebookstore;
-## Run below script to create all tables :
+- Run below script to create all tables :
 	-- -------------------------------
 -- Users Table
 -- -------------------------------
@@ -140,25 +141,26 @@ spring.datasource.url=jdbc:mysql://localhost:3306/onlinebookstore
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
-//keep else part as it is
 ```
 3.Run app:
 - Open SpringBootBookStoreApplication.java-> Right-click  → Run 
 - http://localhost:8080 
 
-4. Setup & Run Python Microservice (PyCharm)
-- setup and run virtual environment :
+4.Setup & Run Python Microservice (PyCharm)
+```
+# setup and run virtual environment :
 cd recommendation-cf-service
 python -m venv venv
-- Activate it:venv\Scripts\activate
-- Install Required Libraries
+# Activate it
+venv\Scripts\activate
+# Install Required Libraries
 pip install -r requirements.txt
 
-(If missing, use:)
+# (If missing, use:)
 pip install fastapi uvicorn numpy pandas scikit-learn requests matplotlib	
 - Run the Recommendation Service :  uvicorn app:app --reload --port 8000
 - Service runs at : http://localhost:8000
-
+```
 5.Setup and run React Frontend (VS code)
 - Open folder named 'Online_Bookstore_frontend' in VS Code
 - Install dependencies : npm install
