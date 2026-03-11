@@ -13,14 +13,8 @@ The system provides:
 - Order placement & review handling  
 - Admin controls for managing inventory
 
-## Technologies Used :
-Frontend : React, Axios, Redux
-Backend : Spring Boot, Spring security (JWT)
-Database : MySQL
-Recommendation Model : Python, FastAPI, NumPy, Pandas, sckit-learn
-Deployment style : Local Microservices Architecture
 
-## Steps to setup and run the project :
+## 🔧 Steps to setup and run the project :
 ```
 # Clone the repository in your local machine
 "git clone https://github.com/Aaryan13-hub/Online_bookstore.git"
@@ -167,5 +161,23 @@ pip install fastapi uvicorn numpy pandas scikit-learn requests matplotlib
 - Ensure backend API is set in axiosConfig.js : const BASE_URL = "http://localhost:8080";
 - Start Frontend : npm run dev
 
+## 🛠️ Technologies Used
+[Java](https://www.java.com/)- Core programming language
+[Spring Boot](https://spring.io/projects/spring-boot)  - Backend framework for building REST APIs
+[React](https://react.dev/) – Frontend user interface 
+[Python](https://www.python.org/) – For Recommendation System
+[MySQL](https://www.mysql.com/) – Database management system
+[Spring Security](https://spring.io/projects/spring-security) – Authentication and authorization
 
+## 🤝 Contributing
+We welcome contributions! If you'd like to support the project:
 
+Fork the repository
+Create a new branch (git checkout -b feature-idea)
+Commit your changes (git commit -m 'Add new feature')
+Push to the branch (git push origin feature-idea)
+Create a pull request
+
+## 📄 License
+This project is licensed under an [Open License](LICENSE).  
+Feel free to use, modify, and distribute the project according to the license terms.
